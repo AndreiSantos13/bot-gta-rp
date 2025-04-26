@@ -1,0 +1,59 @@
+{
+    "prefix": "!",
+    "activity_type": "playing",
+    "activity_name": "GTA RP",
+    "server_name": "Sorocaba Roleplay",
+    "server_logo_url": "https://i.imgur.com/example.png",
+    "color": {
+        "success": "0x2ecc71",
+        "error": "0xe74c3c",
+        "info": "0x3498db",
+        "warning": "0xf1c40f"
+    },
+    "channels": {
+        "announcements": 1039846254784786432,
+        "suggestions": 1039846254784786433,
+        "allowlist_category": 1039846254784786434,
+        "logs": 1039846254784786435,
+        "allowlist_approved": 1039846254784786436,
+        "allowlist_rejected": 1039846254784786437,
+        "allowlist_results": 1039846254784786438,
+        "dashboard": 1039846254784786439
+    },
+    "roles": {
+        "admin": 1039846254784786440,
+        "moderator": 1039846254784786441,
+        "allowed": 1039846254784786442,
+        "tourist": 1039846254784786443,
+        "resident": 1039846254784786444
+    },
+    "allowlist": {
+        "auto_approve": false,
+        "questions": [
+            "O que é METAGAMING?",
+            "O que é POWERGAMING?",
+            "O que é COMBAT LOGGING?",
+            "O que é DARK RP?",
+            "O que é SAFE-ZONE?",
+            "O que é AMOR A VIDA?",
+            "O que é ANTI RP?",
+            "Em que momento é permitido falar fora do RP?",
+            "Um indivíduo começa a conversar sobre assuntos fora do RP, convidando você a fazer coisas que seu personagem não faz a mínima ideia do que seja. Como você lidaria com a situação?",
+            "Você está fugindo da polícia e sem querer, em uma manobra arriscada, seu carro capota dando uma volta no ar e colidindo com uma parede, porém cai em pé ainda funcionando com os pneus intactos. O que você faz nessa situação?"
+        ],
+        "correct_answers": [
+            "É você usar informações de fora do jogo.",
+            "É abusar da mecânica do jogo.",
+            "É deslogar do servidor para fugir de abordagem, prisão, roubo.",
+            "É praticar um RP com contexto pesado, como por exemplo: tortura, assédio, estupro, etc.",
+            "São lugares em que não se pode roubar ou matar.",
+            "É valorizar a sua vida como se ela fosse única.",
+            "É você quebrar as regras do servidor.",
+            "Nenhum.",
+            "Digo que não sei do que está falando, em seguida recomendo procurar um médico e sigo minha vida.",
+            "Paro o veículo, deito no chão e faço RP de ferido."
+        ],
+        "min_account_age_days": 7,
+        "passing_score": 8
+    }
+}

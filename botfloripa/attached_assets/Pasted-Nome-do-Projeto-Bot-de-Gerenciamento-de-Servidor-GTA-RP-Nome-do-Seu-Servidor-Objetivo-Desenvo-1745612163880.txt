@@ -1,0 +1,94 @@
+Nome do Projeto: Bot de Gerenciamento de Servidor GTA RP [Nome do Seu Servidor]
+
+Objetivo: Desenvolver um bot de Discord robusto e amigável para gerenciar membros, moderar o servidor, facilitar a comunicação e coletar feedback no seu servidor de GTA RP.
+
+Tecnologias Sugeridas:
+
+Linguagem de Programação: Python ou Node.js são escolhas populares para desenvolvimento de bots Discord, com bibliotecas maduras como discord.py (Python) e discord.js (Node.js). Ambas possuem vasta documentação e comunidade ativa.
+Banco de Dados: Para armazenar dados persistentes como allowlist, advertências e sugestões, um banco de dados é essencial. Opções incluem:
+SQLite: Simples, baseado em arquivo, bom para projetos menores e mais fáceis de configurar.
+PostgreSQL ou MySQL: Mais robustos, adequados para servidores maiores com mais dados e usuários. Requerem um setup separado do bot.
+MongoDB: Banco de dados NoSQL, flexível para armazenar diferentes tipos de dados.
+Estrutura do Bot:
+
+O bot será organizado em módulos para melhor manutenibilidade e escalabilidade. Cada sistema principal terá seu próprio módulo.
+
+Módulo Principal:
+Inicialização do bot e conexão com o Discord.
+Carregamento dos módulos dos sistemas.
+Configurações gerais do bot (prefixo de comando, IDs de canais, etc.).
+Módulo de Allowlist:
+Perguntas configuráveis
+sistema de correção automática ou correção manual pela staff
+registro de allowlists 
+quando o usuário for realizar a allowlist, criara um canal que somente ele tenha acesso as perguntas
+Comandos para gerenciar a allowlist.
+Verificação de membros na allowlist (opcionalmente ao entrar no servidor ou tentar acessar canais restritos).
+
+Módulo de Moderação (Advertências e Banimento):
+Comandos para aplicar e remover advertências.
+Registro de advertências por usuário.
+Comandos para banir e desbanir usuários (temporária ou permanentemente).
+Registro de ações de moderação.
+Módulo de Anúncios:
+Comando para enviar anúncios para um canal específico.
+Formatação de embeds para anúncios (opcional).
+Restrição de uso do comando apenas para cargos autorizados.
+Módulo de Sugestões:
+Comando para usuários enviarem sugestões.
+Envio automático das sugestões para um canal designado.
+Adição de reações (👍/👎) para votação nas sugestões.
+Comandos para gerenciar sugestões (marcar como implementada, em análise, etc. - opcional).
+Detalhes dos Sistemas:
+
+Sistema de Allowlist:
+
+Funcionalidade: Controla quais usuários têm acesso a certas partes do servidor ou ao próprio servidor (se configurado dessa forma). Ideal para servidores RP que exigem uma aplicação.
+Comandos:
+!allowlist add <@usuario>: Adiciona um usuário à allowlist.
+!allowlist remove <@usuario>: Remove um usuário da allowlist.
+!allowlist check <@usuario>: Verifica se um usuário está na allowlist.
+!allowlist list: Lista todos os usuários na allowlist (opcional, dependendo do tamanho).
+Implementação: Armazenar os IDs dos usuários permitidos no banco de dados. O bot pode verificar a allowlist ao atribuir cargos ou permitir acesso a canais específicos.
+Sistema de Advertência:
+
+Funcionalidade: Permite que a equipe de moderação registre infrações cometidas por usuários, com um histórico claro.
+Comandos:
+!warn <@usuario> <motivo>: Aplica uma advertência a um usuário com um motivo.
+!warnings <@usuario>: Exibe o histórico de advertências de um usuário.
+!clearwarnings <@usuario>: Limpa todas as advertências de um usuário (requer permissão).
+Implementação: Criar uma tabela no banco de dados para armazenar advertências, incluindo ID do usuário, ID do moderador, motivo e data/hora.
+Sistema de Banimento:
+
+Funcionalidade: Permite que a equipe de moderação remova usuários que violaram as regras do servidor.
+Comandos:
+!ban <@usuario> [tempo] [motivo]: Bane um usuário. O tempo de banimento pode ser especificado (ex: 7d para 7 dias) ou permanente se não especificado.
+!unban <ID do usuário>: Desbane um usuário usando seu ID.
+!bans: Lista os usuários banidos (opcional).
+Implementação: Utilizar as funcionalidades de banimento da API do Discord. Opcionalmente, registrar os banimentos em uma tabela no banco de dados para ter um histórico interno e gerenciar banimentos temporários.
+Sistema de Anúncios:
+
+Funcionalidade: Permite que a equipe envie comunicados importantes para a comunidade de forma centralizada e destacada.
+Comando:
+!announce <mensagem do anúncio>: Envia a mensagem para um canal de anúncios configurado.
+Implementação: O comando deve ser restrito a cargos específicos (ex: Administrador, Gerente de Servidor). O bot enviará a mensagem para um canal pré-configurado, possivelmente formatada em um embed atraente.
+Sistema de Sugestões:
+
+Funcionalidade: Oferece um canal estruturado para os jogadores darem ideias e feedback para melhorar o servidor.
+Comando:
+!suggest <sua sugestão>: Envia a sugestão para o canal de sugestões.
+Implementação: O bot receberá a sugestão do usuário e a postará em um canal dedicado (configurável). Opcionalmente, pode adicionar automaticamente reações de "joinha para cima" e "joinha para baixo" para facilitar a votação da comunidade. A sugestão pode ser salva no banco de dados com status (pendente, em análise, aceita, rejeitada).
+Permissões e Cargos:
+
+É crucial definir cargos no Discord com permissões apropriadas para cada sistema. Por exemplo:
+
+Cargos de administração/moderação terão acesso aos comandos de allowlist, advertência, banimento e anúncio.
+Todos os membros poderão usar o comando de sugestão.
+Próximos Passos:
+
+Escolha da Tecnologia: Decidir entre Python (discord.py) ou Node.js (discord.js) e o banco de dados a ser utilizado.
+Ambiente de Desenvolvimento: Configurar o ambiente local para desenvolver o bot.
+Criação do Aplicativo Discord: Criar um novo aplicativo para o bot no Portal do Desenvolvedor do Discord e obter o token do bot.
+Implementação Incremental: Desenvolver um módulo por vez, começando pelos mais simples (ex: Anúncios, Sugestões) e avançando para os mais complexos (Allowlist, Moderação).
+Testes: Testar cada funcionalidade extensivamente em um servidor de desenvolvimento antes de implantar no servidor principal.
+Documentação: Criar uma documentação básica sobre como usar os comandos do bot.
